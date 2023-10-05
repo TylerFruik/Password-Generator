@@ -1,12 +1,16 @@
 // * VARIABLES
 var generateBtn = document.getElementById('generate');
 const buttons = document.querySelectorAll('.parameter-button');
-var slider = document.querySelector(".slider");
-var sliderValue = document.getElementById("slider-value");
+var slider = document.querySelector('.slider');
+var sliderValue = document.getElementById('slider-value');
 var btnUpper = false;
 var btnLower = false;
 var btnNumber = false;
 var btnSymbol = false;
+const arrayUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const arrayLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const arrayNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const arraySymbol = [  '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 
 // * FUNCTIONS
 //updates slider value number
@@ -17,33 +21,32 @@ function updateSliderValue() {
 // ! Eventually, have the sliderValue number move along with the slider thumb
 // function updateSliderValuePosition() {}
 
-
-function setCriteria() { // • PASSWORD SETUP METHOD function setCriteria()
-}
-
 function generatePasswordUnlock () {
   if (btnUpper || btnLower || btnNumber || btnSymbol) {
-    generateBtn.style.cursor = "pointer";
-    console.log("27");
+    generateBtn.style.cursor = 'pointer';
+    generateBtn.style.filter = 'brightness(1)';
+    console.log('Generate Password if works!')
   } else {
-    generateBtn.style.cursor = "not-allowed";
+    generateBtn.style.cursor = 'not-allowed';
+    generateBtn.style.filter = 'brightness(0.6)';
+    console.log('Generate Password else works!')
   }
 }
 
-function generatePassword(length) {
-  //if statement that determines what parameters the password will be generated with
-  //if statement that first adds at least one of the required characters
-  //for loop set to requested password length
-  //shuffle the array
-  
-  return test;
+function generatePassword() {
+  if (btnUpper) {
+    var passwordGen = Math.floor(Math.random() * arrayUpper.length);
+  }
+  console.log("generatePassword was called!");
+  return passwordGen;
 }
 
 // Write password to the #password input
 function writePassword() {
-  //call setCriteria()
+  console.log("Clicking the button works!")
   var password = generatePassword();
-  var passwordText = document.querySelector('password');
+  console.log(password);
+  var passwordText = document.getElementById('password');
   passwordText.value = password;
 }
 
@@ -52,27 +55,23 @@ function writePassword() {
 buttons.forEach(button => {
   button.addEventListener('click', () => {
       button.classList.toggle('selected');
-      console.log(button);
-      console.log(button.id);
       if (button.id == 'uppercase') {
         btnUpper = !btnUpper;
       } else if (button.id == 'lowercase') {
         btnLower = !btnLower;
       } else if (button.id == 'number') {
-        btnNumber = !btnLower;
+        btnNumber = !btnNumber;
       } else if (button.id == 'symbol') {
         btnSymbol = !btnSymbol;
       }
+      console.log("Paras works!")
       generatePasswordUnlock();
-      console.log("54");
   });
 });
 
+// Generate Password button
+// TODO prints on startup
+generateBtn.addEventListener('click', console.log('click'))
+
 // Runs if slider is adjusted
-slider.addEventListener("input", updateSliderValue);
-
-
-// * MAIN
-
-// TODO
-// • Generate Password button togglegit 
+slider.addEventListener('input', updateSliderValue);
