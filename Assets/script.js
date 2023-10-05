@@ -3,6 +3,7 @@ var generateBtn = document.getElementById('generate');
 const buttons = document.querySelectorAll('.parameter-button');
 var slider = document.querySelector('.slider');
 var sliderValue = document.getElementById('slider-value');
+var passwordText = document.getElementById('password');
 var btnUpper = false;
 var btnLower = false;
 var btnNumber = false;
@@ -25,28 +26,42 @@ function generatePasswordUnlock () {
   if (btnUpper || btnLower || btnNumber || btnSymbol) {
     generateBtn.style.cursor = 'pointer';
     generateBtn.style.filter = 'brightness(1)';
-    console.log('Generate Password if works!')
   } else {
     generateBtn.style.cursor = 'not-allowed';
     generateBtn.style.filter = 'brightness(0.6)';
-    console.log('Generate Password else works!')
   }
 }
 
 function generatePassword() {
+  var passwordGen = '';
+  var characterArray = [];
   if (btnUpper) {
-    var passwordGen = Math.floor(Math.random() * arrayUpper.length);
+    passwordGen = passwordGen + arrayUpper[Math.floor(Math.random() * arrayUpper.length)];
+    characterArray = characterArray + arrayUpper;
+  } 
+  if (btnLower) {
+    passwordGen = passwordGen + arrayLower[Math.floor(Math.random() * arrayLower.length)];
+    characterArray = characterArray + arrayLower;
   }
-  console.log("generatePassword was called!");
+  if (btnNumber) {
+    passwordGen = passwordGen + arrayNumber[Math.floor(Math.random() * arrayNumber.length)];
+    characterArray = characterArray + arrayNumber;
+  }
+  if (btnSymbol) {
+    passwordGen = passwordGen + arraySymbol[Math.floor(Math.random() * arraySymbol.length)];
+    characterArray = characterArray + arraySymbol;
+  }
+  for (i = 0; i < slider.value; i++) {
+    passwordGen = passwordGen + characterArray[Math.floor(Math.random() * characterArray.length)]
+  }
+
   return passwordGen;
 }
 
 // Write password to the #password input
 function writePassword() {
-  console.log("Clicking the button works!")
   var password = generatePassword();
   console.log(password);
-  var passwordText = document.getElementById('password');
   passwordText.value = password;
 }
 
@@ -64,14 +79,19 @@ buttons.forEach(button => {
       } else if (button.id == 'symbol') {
         btnSymbol = !btnSymbol;
       }
-      console.log("Paras works!")
       generatePasswordUnlock();
   });
 });
 
 // Generate Password button
-// TODO prints on startup
-generateBtn.addEventListener('click', console.log('click'))
+// TODO disable the button unless parameters are set
+generateBtn.addEventListener('click', () => {
+  if (btnUpper || btnLower || btnNumber || btnSymbol) {
+    writePassword();
+  } else {
+    passwordText.value = 'You must select your password parameters first!';
+  }
+})
 
 // Runs if slider is adjusted
 slider.addEventListener('input', updateSliderValue);
