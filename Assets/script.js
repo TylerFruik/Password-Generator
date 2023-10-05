@@ -3,6 +3,10 @@ var generateBtn = document.getElementById('generate');
 const buttons = document.querySelectorAll('.parameter-button');
 var slider = document.querySelector(".slider");
 var sliderValue = document.getElementById("slider-value");
+var btnUpper = false;
+var btnLower = false;
+var btnNumber = false;
+var btnSymbol = false;
 
 // * FUNCTIONS
 //updates slider value number
@@ -15,13 +19,18 @@ function updateSliderValue() {
 
 
 function setCriteria() { // • PASSWORD SETUP METHOD function setCriteria()
-//set password length
-//set parameters for generation (upper/lowercase, numbers, symbols)
-//if statement if no parameters are set that repeats the process
 }
 
-function generatePassword() {
+function generatePasswordUnlock () {
+  if (btnUpper || btnLower || btnNumber || btnSymbol) {
+    generateBtn.style.cursor = "pointer";
+    console.log("27");
+  } else {
+    generateBtn.style.cursor = "not-allowed";
+  }
+}
 
+function generatePassword(length) {
   //if statement that determines what parameters the password will be generated with
   //if statement that first adds at least one of the required characters
   //for loop set to requested password length
@@ -43,21 +52,27 @@ function writePassword() {
 buttons.forEach(button => {
   button.addEventListener('click', () => {
       button.classList.toggle('selected');
+      console.log(button);
+      console.log(button.id);
+      if (button.id == 'uppercase') {
+        btnUpper = !btnUpper;
+      } else if (button.id == 'lowercase') {
+        btnLower = !btnLower;
+      } else if (button.id == 'number') {
+        btnNumber = !btnLower;
+      } else if (button.id == 'symbol') {
+        btnSymbol = !btnSymbol;
+      }
+      generatePasswordUnlock();
+      console.log("54");
   });
 });
+
 // Runs if slider is adjusted
 slider.addEventListener("input", updateSliderValue);
 
-// ! Generate Password button
-// if (generateBtn.disabled == true) {
-//   generateBtn.addEventListener("click", writePassword);
-//   console.log('true')
-// } else if (generateBtn.disabled == false) {
-//   console.log('false')
-// }
 
-// MAIN
-updateSliderValue();
+// * MAIN
 
 // TODO
 // • Generate Password button togglegit 
