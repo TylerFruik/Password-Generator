@@ -14,7 +14,32 @@
       </header>
       <div class="card">
         <div class="card-header">
-          <h2>Generate a Password</h2>
+          <h2>Set your parameters</h2>
+          <h3>You must have at least one selected!</h3>
+            <div class="parameters">
+              <div class="parameter-button-section">
+                <button id="uppercase" class="parameter-button">ABC</button>
+                <h3>Uppercase</h3>
+              </div>
+              <div class="parameter-button-section">
+                <button id="lowercase" class="parameter-button">abc</button>
+                <h3>Lowercase</h3>
+              </div>
+              <div class="parameter-button-section">
+                <button id="number" class="parameter-button">123</button>
+                <h3>Numbers</h3>
+              </div>
+              <div class="parameter-button-section">
+                <button id="symbol" class="parameter-button">!@#</button>
+                <h3>Symbols</h3>
+              </div>
+              <div class="slider">
+                <input type="range" min="">
+              </div>
+            </div>
+          <div class="generate-button">
+            <button id="generate" class="btn">Generate Password</button>
+          </div>
         </div>
         <div class="card-body">
           <textarea
@@ -23,9 +48,6 @@
             placeholder="Your Secure Password"
             aria-label="Generated Password"
           ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
         </div>
       </div>
     </div>

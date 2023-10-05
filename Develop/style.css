@@ -1,3 +1,7 @@
+:root {
+  --primary: #B4C1CA;
+}
+
 *,
 *::before,
 *::after {
@@ -14,7 +18,7 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #1F1F1F;
 }
 
 .wrapper {
@@ -25,40 +29,71 @@ body {
 
 header {
   text-align: center;
-  padding: 20px;
+  padding: 0px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: var(--primary);
+  font-size: 40px;
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: #272525;
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  color: var(--primary);
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  text-align: center;
+}
+
+.card h2 {
+  font-size: 48px;
+  margin: 0px 0px 20px;
 }
 
 .card-header::after {
   content: " ";
   display: block;
   width: 100%;
-  background: #e7e9eb;
   height: 2px;
 }
 
-.card-body {
-  min-height: 100px;
+.parameters {
+  display: inline-flex;
 }
 
-.card-footer {
+.parameter-button-section h3 {
+  margin: 5px 40px 20px;
+}
+
+.parameter-button {
+  border: none;
+  background-color: hsl(360, 91%, 36%);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  color: hsl(0, 0%, 100%);
+  font-size: 28px;
+  margin: 8px 16px 2px;
+  padding: 14px 20px;
   text-align: center;
+  cursor: pointer;
+  filter: brightness(0.6);
+  transition: filter 0.4s ease;
 }
 
-.card-footer::before {
+.parameter-button:hover {
+  filter: brightness(1);
+}
+
+.parameter-button.selected {
+  filter: brightness(1);
+  border: 2px solid white;
+  margin: 6px 16px 0px;
+}
+
+.generate-button::before {
   content: " ";
   display: block;
   width: 100%;
@@ -66,7 +101,7 @@ header {
   height: 2px;
 }
 
-.card-footer::after {
+.generate-button::after {
   content: " ";
   display: block;
   clear: both;
@@ -75,26 +110,27 @@ header {
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
-  font-size: 22px;
+  font-size: 40px;
   line-height: 22px;
   margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
+  padding: 18px 34px;
   text-align: center;
   cursor: pointer;
 }
 
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
+#generate {
+  cursor: not-allowed;
+  filter: brightness(0.6);
+  transition: filter 0.4s ease;
 }
 
-.float-right {
-  float: right;
+.card-body {
+  min-height: 100px;
 }
 
 #password {
@@ -108,6 +144,7 @@ button[disabled] {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 85px;
+  background-color: #b3b3b3;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
@@ -135,3 +172,8 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+
+
+
+/* TODO */
+/* Parameter buttons do not wrap when screen gets smaller. Try to use @media for this */
