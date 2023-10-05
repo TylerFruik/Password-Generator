@@ -11,7 +11,7 @@ var btnSymbol = false;
 const arrayUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 const arrayLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm','n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 const arrayNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const arraySymbol = [  '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
+const arraySymbol = ['!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 
 // * FUNCTIONS
 //updates slider value number
@@ -35,33 +35,37 @@ function generatePasswordUnlock () {
 function generatePassword() {
   var passwordGen = '';
   var characterArray = [];
+  var i = 0;
   if (btnUpper) {
     passwordGen = passwordGen + arrayUpper[Math.floor(Math.random() * arrayUpper.length)];
-    characterArray = characterArray + arrayUpper;
+    characterArray = characterArray.concat(arrayUpper);
+    i++;
   } 
   if (btnLower) {
     passwordGen = passwordGen + arrayLower[Math.floor(Math.random() * arrayLower.length)];
-    characterArray = characterArray + arrayLower;
+    characterArray = characterArray.concat(arrayLower);
+    i++;
   }
   if (btnNumber) {
     passwordGen = passwordGen + arrayNumber[Math.floor(Math.random() * arrayNumber.length)];
-    characterArray = characterArray + arrayNumber;
+    characterArray = characterArray.concat(arrayNumber);
+    i++;
   }
   if (btnSymbol) {
     passwordGen = passwordGen + arraySymbol[Math.floor(Math.random() * arraySymbol.length)];
-    characterArray = characterArray + arraySymbol;
+    characterArray = characterArray.concat(arraySymbol);
+    i++;
   }
-  for (i = 0; i < slider.value; i++) {
+  console.log(characterArray);
+  for (i; i < slider.value; i++) {
     passwordGen = passwordGen + characterArray[Math.floor(Math.random() * characterArray.length)]
   }
-
   return passwordGen;
 }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  console.log(password);
   passwordText.value = password;
 }
 
@@ -84,7 +88,6 @@ buttons.forEach(button => {
 });
 
 // Generate Password button
-// TODO disable the button unless parameters are set
 generateBtn.addEventListener('click', () => {
   if (btnUpper || btnLower || btnNumber || btnSymbol) {
     writePassword();

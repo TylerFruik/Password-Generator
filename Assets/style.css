@@ -116,7 +116,7 @@ header h1 {
 
 .slider {
   appearance: none;
-  width: 90%; /* ! */
+  width: 90%;
   height: 10px;
   background: var(--background);
   border-radius: 4px;
