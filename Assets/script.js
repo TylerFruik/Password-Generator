@@ -1,8 +1,19 @@
 // * VARIABLES
 var generateBtn = document.getElementById('generate');
 const buttons = document.querySelectorAll('.parameter-button');
+var slider = document.querySelector(".slider");
+var sliderValue = document.getElementById("slider-value");
 
 // * FUNCTIONS
+//updates slider value number
+function updateSliderValue() {
+  sliderValue.textContent = slider.value;
+}
+
+// ! Eventually, have the sliderValue number move along with the slider thumb
+// function updateSliderValuePosition() {}
+
+
 function setCriteria() { // • PASSWORD SETUP METHOD function setCriteria()
 //set password length
 //set parameters for generation (upper/lowercase, numbers, symbols)
@@ -28,12 +39,14 @@ function writePassword() {
 }
 
 // * LISTENERS
-// Parameter buttons
+// Runs if parameter button is clicked
 buttons.forEach(button => {
   button.addEventListener('click', () => {
       button.classList.toggle('selected');
   });
 });
+// Runs if slider is adjusted
+slider.addEventListener("input", updateSliderValue);
 
 // ! Generate Password button
 // if (generateBtn.disabled == true) {
@@ -44,6 +57,7 @@ buttons.forEach(button => {
 // }
 
 // MAIN
+updateSliderValue();
 
 // TODO
 // • Generate Password button togglegit 

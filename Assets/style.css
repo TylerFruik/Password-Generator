@@ -1,5 +1,7 @@
 :root {
   --primary: #B4C1CA;
+  --secondary: #AF0808;
+  --background: #1F1F1F;
 }
 
 *,
@@ -18,21 +20,21 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #1F1F1F;
+  background-color: var(--background);
 }
 
 .wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0px 20px;
 }
 
 header {
   text-align: center;
-  padding: 0px;
-  padding-top: 0px;
   color: var(--primary);
   font-size: 40px;
+}
+
+header h1 {
+  margin: 20px;
 }
 
 .card {
@@ -70,7 +72,7 @@ header {
 
 .parameter-button {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: var(--secondary);
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: hsl(0, 0%, 100%);
@@ -93,6 +95,49 @@ header {
   margin: 6px 16px 0px;
 }
 
+.slider.container {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.length-slider {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.length-slider h4 {
+  font-size: 30px;
+  position: relative;
+  margin-top: -10px;
+  margin-inline: 10px;
+  width: 40px;
+}
+
+.slider {
+  appearance: none;
+  width: 90%; /* ! */
+  height: 10px;
+  background: var(--background);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 40px;
+  background: var(--secondary);
+  border-radius: 5px;
+  filter: brightness(0.6);
+}
+
+#slider-value {
+  position: relative;
+  top: 0;
+}
+
 .generate-button::before {
   content: " ";
   display: block;
@@ -109,7 +154,7 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: var(--secondary);
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
