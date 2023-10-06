@@ -56,7 +56,6 @@ function generatePassword() {
     characterArray = characterArray.concat(arraySymbol);
     i++;
   }
-  console.log(characterArray);
   for (i; i < slider.value; i++) {
     passwordGen = passwordGen + characterArray[Math.floor(Math.random() * characterArray.length)]
   }

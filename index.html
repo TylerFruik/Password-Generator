@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- head established with necessary meta data -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    <!-- links the CSS file -->
     <link rel="stylesheet" href="./Assets/style.css" />
   </head>
   <body>
@@ -13,11 +15,14 @@
         <h1>Super Secure</h1>
         <h1>Password Generator</h1>
       </header>
+      <!-- the div section of the 'card' class is a collection of flex boxes necessary to get the proper page layout -->
       <div class="card">
         <div class="card-header">
           <h2>Set your parameters</h2>
           <h3>You must have at least one selected!</h3>
+            <!-- Four parameter buttons -->
             <div class="parameters">
+              <!-- Each flexbox here contains the button with its explaination text beneath it. Only the button is clickable -->
               <div class="parameter-button-section">
                 <button id="uppercase" class="parameter-button">ABC</button>
                 <h3>Uppercase</h3>
@@ -35,6 +40,7 @@
                 <h3>Symbols</h3>
               </div>
             </div>
+            <!-- Password length slider -->
             <div class="slider-container">
               <span id="slider-value">68</span>
               <div class="length-slider">
@@ -43,16 +49,19 @@
                 <h4>128</h4>
               </div>
             </div>
+          <!-- Button to generate the password with the set parameters -->
           <div class="generate-button">
             <button id="generate" class="btn">Generate Password</button>
           </div>
         </div>
+        <!-- Area in which the generated password of set parameters and length is displayed to be easily copied -->
         <div class="card-body">
           <textarea readonly id="password" placeholder="Your Secure Password" value="Generated Password"
           ></textarea>
         </div>
       </div>
     </div>
+    <!-- Links the JS file -->
     <script src="./Assets/script.js"></script>
   </body>
 </html>

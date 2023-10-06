@@ -1,9 +1,11 @@
+/* VARIABLES */
 :root {
   --primary: #B4C1CA;
   --secondary: #AF0808;
   --background: #1F1F1F;
 }
 
+/* MAJOR SELECTORS */
 *,
 *::before,
 *::after {
@@ -27,6 +29,7 @@ body {
   padding: 0px 20px;
 }
 
+/* HEADER */
 header {
   text-align: center;
   color: var(--primary);
@@ -37,6 +40,7 @@ header h1 {
   margin: 20px;
 }
 
+/* .CARD */
 .card {
   background-color: #272525;
   border-radius: 5px;
@@ -62,6 +66,7 @@ header h1 {
   height: 2px;
 }
 
+/* PARAMETER BUTTONS */
 .parameters {
   display: inline-flex;
 }
@@ -95,6 +100,7 @@ header h1 {
   margin: 6px 16px 0px;
 }
 
+/* SLIDER */
 .slider.container {
   display: inline-flex;
   flex-direction: row;
@@ -137,6 +143,7 @@ header h1 {
   top: 0;
 }
 
+/* GENERATE BUTTON */
 .generate-button::before {
   content: " ";
   display: block;
@@ -172,6 +179,7 @@ header h1 {
   transition: filter 0.4s ease;
 }
 
+/* .CARD BODY AND PASSWORD */
 .card-body {
   min-height: 100px;
 }
@@ -198,6 +206,7 @@ header h1 {
   overflow: hidden;
 }
 
+/* RESIZING */
 @media (max-width: 690px) {
   .btn {
     font-size: 2rem;
@@ -236,8 +245,3 @@ header h1 {
     font-size: 24px;
   }
 }
-
-
-
-/* TODO */
-/* Parameter buttons do not wrap when screen gets smaller. Try to use @media for this */
