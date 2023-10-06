@@ -15,7 +15,7 @@ This repository contains the HTML, CSS, and JS files as well as all necessary im
 All additions to base-code written manually by Tyler Fruik
 
 ### The following is an image of the final webpage:
-![Image URL]([#](https://github.com/TylerFruik/Password-Generator/blob/main/Assets/images/PageExample.png))
+![Image URL](https://github.com/TylerFruik/Password-Generator/blob/main/Assets/images/PageExample.png)
 
 ## Assignment Information
 
