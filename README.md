@@ -15,7 +15,7 @@ This repository contains the HTML, CSS, and JS files as well as all necessary im
 All additions to base-code written manually by Tyler Fruik
 
 ### The following is an image of the final webpage:
-![Image URL](#)
+![Image URL]([#](https://github.com/TylerFruik/Password-Generator/blob/main/Assets/images/PageExample.png))
 
 ## Assignment Information
 
@@ -45,7 +45,7 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 ### Mock-Up
-![Image URL](#)
+![Image URL](https://github.com/TylerFruik/Password-Generator/blob/main/Assets/images/03-javascript-homework-demo.png)
 
 ### Grading Criteria
 
