@@ -97,7 +97,7 @@ header h1 {
 .parameter-button.selected {
   filter: brightness(1);
   border: 2px solid white;
-  margin: 6px 16px 0px;
+  padding: 12px 18px;
 }
 
 /* SLIDER */
